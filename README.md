@@ -12,7 +12,7 @@ $ ng serve
 
      production: false,
        firebase: 
-       //these options is unique and you can get from firebase site
+       //when creating new firebase project you can get these options for angular
        {
                 apiKey: "",
                 authDomain: "",
@@ -21,7 +21,6 @@ $ ng serve
                 storageBucket: "",
                 messagingSenderId: ""
        }
-       //when creating new firebase project you can get these options for angular
    
 ##### app.module.ts
 #
