@@ -1,6 +1,7 @@
 <h1>Angular Firebase Usage</h1>
 <h2>1 - Project Settings and imports</h2>
 <em>environment.ts</em>
+<br><p>
 <code>
      production: false,
        firebase: 
@@ -14,7 +15,7 @@
                 messagingSenderId: ""
        }
        //when creating new firebase project you can get these options for angular
-</code>       
+</code><p>       
 <em>app.module.ts</em>
     import { environment } from '../environments/environment';
     import { AngularFireModule } from '@angular/fire';
