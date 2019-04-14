@@ -47,8 +47,8 @@ $ ng serve
       });
     }); 
 #### Add document to collection
-    //Basic data adding document adding
-    //if document exits it will overwrite it 
+    //Basic document adding
+    //if document exits it will overwrite 
     //else it will create new document with id of new-city-id
     this.db.collection("cities").doc("new-city-id").set(data);
     
