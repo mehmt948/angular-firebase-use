@@ -8,7 +8,6 @@ $ npm install @angular/fire firebase --save
 $ ng serve
 ```
 ##### environment.ts
-#
 
      production: false,
        firebase: 
@@ -23,7 +22,6 @@ $ ng serve
        }
    
 ##### app.module.ts
-#
     import { environment } from '../environments/environment';
     import { AngularFireModule } from '@angular/fire';
     import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -39,7 +37,6 @@ $ ng serve
       ],
        
 ##### app.component.ts
-#
     import { AngularFirestore } from '@angular/fire/firestore';
     constructor(private db: AngularFirestore) {}
 ## Functions
@@ -63,7 +60,7 @@ $ ng serve
     .subscribe(docRef => {
         console.log("Document written with ID: ", docRef.id);
     });
-#### Deleting or adding new data to doc
+#### Delete or add new data to document
     this.db.collection('users').doc('sampleDocumentID').set(
       {name:'mark',age:21 }    
     );
