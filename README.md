@@ -1,8 +1,15 @@
-<h1>Angular Firebase Usage</h1>
-<h2>1 - Project Settings and imports</h2>
-<em>environment.ts</em>
-<br><p>
-<code>
+# Angular Firebase Usage
+### 1 - Project settings and imports
+```sh
+$ npm install @angular/cli
+$ ng new-app
+$ cd new-app
+$ npm install @angular/fire firebase --save
+$ ng serve
+```
+##### environment.ts
+#
+
      production: false,
        firebase: 
        //these options is unique and you can get from firebase site
@@ -15,8 +22,9 @@
                 messagingSenderId: ""
        }
        //when creating new firebase project you can get these options for angular
-</code><p>       
-<em>app.module.ts</em>
+   
+##### app.module.ts
+#
     import { environment } from '../environments/environment';
     import { AngularFireModule } from '@angular/fire';
     import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -31,17 +39,18 @@
         AngularFireStorageModule // imports firebase/storage only needed for storage features
       ],
        
-<em>app.component.ts</em>
+##### app.component.ts
+#
     import { AngularFirestore } from '@angular/fire/firestore';
     constructor(private db: AngularFirestore) {}
-<h2>2- Queries</h2>
-<h3>1 - Getting all documents</h3>
+## Queries
+#### Getting all documents
     this.db.collection('users').get().subscribe(querySnapshot => {
       querySnapshot.forEach(doc => {
         console.log(doc.id, " => ", doc.data());
       });
     }); 
-<h3>2 - Add document to collection</h3>
+#### Add document to collection
     //Basic data adding document adding
     //if document exits it will overwrite it 
     //else it will create new document with id of new-city-id
@@ -55,18 +64,18 @@
     .subscribe(docRef => {
         console.log("Document written with ID: ", docRef.id);
     });
-<h3> - Deleting or adding new data to doc</h3>
-    const docRef = this.db.collection('users').doc(DOCID).set({
-      {newDataObject}    
+#### Deleting or adding new data to doc
+    this.db.collection('users').doc('sampleDocumentID').set(
+      {name:'mark',age:21 }    
     );
-<h3>4 - Find spesific documents</h3>
+#### Find spesific documents
     this.db.collection('cities').where('capital', '==', 'course1')
     .get(querySnapshot => {
       querySnapshot.forEach(doc => {
         console.log(doc.id, ' => ', doc.data());
       })
     })
-<h2>Possible Data Types</h2>
+### Data Types
     var docData = {
         stringExample: "Hello world!",
         booleanExample: true,
@@ -84,3 +93,5 @@
     this.db.collection("users").doc("one").set(docData).subscribe(()=>{
         console.log("Document successfully written!");
     });
+
+
