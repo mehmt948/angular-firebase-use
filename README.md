@@ -1,4 +1,4 @@
-# Angular Firebase Usage
+# Angular Firebase Use
 ### Project settings and imports
 ```sh
 $ npm install @angular/cli
