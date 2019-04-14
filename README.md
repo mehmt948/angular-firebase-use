@@ -1,6 +1,7 @@
-##Angular Firebase Usage
-###1 - Project Settings and imports
-######environment.ts
+<h1>Angular Firebase Usage</h1>
+<h2>1 - Project Settings and imports</h2>
+<em>environment.ts</em>
+<code>
      production: false,
        firebase: 
        //these options is unique and you can get from firebase site
@@ -13,8 +14,8 @@
                 messagingSenderId: ""
        }
        //when creating new firebase project you can get these options for angular
-       
-######app.module.ts
+</code>       
+<em>app.module.ts</em>
     import { environment } from '../environments/environment';
     import { AngularFireModule } from '@angular/fire';
     import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -29,17 +30,17 @@
         AngularFireStorageModule // imports firebase/storage only needed for storage features
       ],
        
-######app.component.ts
+<em>app.component.ts</em>
     import { AngularFirestore } from '@angular/fire/firestore';
     constructor(private db: AngularFirestore) {}
-###2- Queries
-####1 - Getting all documents
+<h2>2- Queries</h2>
+<h3>1 - Getting all documents</h3>
     this.db.collection('users').get().subscribe(querySnapshot => {
       querySnapshot.forEach(doc => {
         console.log(doc.id, " => ", doc.data());
       });
     }); 
-####2 - Add document to collection
+<h3>2 - Add document to collection</h3>
     //Basic data adding document adding
     //if document exits it will overwrite it 
     //else it will create new document with id of new-city-id
@@ -53,18 +54,18 @@
     .subscribe(docRef => {
         console.log("Document written with ID: ", docRef.id);
     });
-####3 - Deleting or adding new data to doc
+<h3> - Deleting or adding new data to doc</h3>
     const docRef = this.db.collection('users').doc(DOCID).set({
       {newDataObject}    
     );
-####4 - Find spesific documents
+<h3>4 - Find spesific documents</h3>
     this.db.collection('cities').where('capital', '==', 'course1')
     .get(querySnapshot => {
       querySnapshot.forEach(doc => {
         console.log(doc.id, ' => ', doc.data());
       })
     })
-###Possible Data Types
+<h2>Possible Data Types</h2>
     var docData = {
         stringExample: "Hello world!",
         booleanExample: true,
