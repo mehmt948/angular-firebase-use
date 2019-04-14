@@ -1,5 +1,5 @@
 # Angular Firebase Usage
-### 1 - Project settings and imports
+### Project settings and imports
 ```sh
 $ npm install @angular/cli
 $ ng new-app
@@ -43,7 +43,7 @@ $ ng serve
 #
     import { AngularFirestore } from '@angular/fire/firestore';
     constructor(private db: AngularFirestore) {}
-## Queries
+## Functions
 #### Getting all documents
     this.db.collection('users').get().subscribe(querySnapshot => {
       querySnapshot.forEach(doc => {
